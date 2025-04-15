@@ -31,62 +31,66 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleRegister} className="space-y-4 w-[600px] h-[600px] bg-white p-8 rounded-3xl drop-shadow-xl">
-      <div className="flex flex-col items-center mb-0">
-        <Image
-          src="/images/logo.svg"
-          width={200}
-          height={200}
-          alt="CloneVk"
-          className="object-contain"
-        />
-        <h1 className="text-2xl font-semibold mb-0">Регистрация</h1>
+    <form onSubmit={handleRegister} className="w-[470px] flex flex-col gap-6 bg-white p-6 rounded-3xl drop-shadow-2xl">
+      <div className="flex flex-col items-center">
+        <div className="relative h-[168px] w-[168px] -mt-10 -mb-6">
+          <Image
+            src="/images/logo.svg"
+            fill
+            alt="CloneVk"
+            className="object-contain"
+            priority
+          />
+        </div>
+        <h1 className="text-2xl font-semibold">Регистрация</h1>
       </div>
-      <div>
-        <label className="block text-sm text-gray-600 mb-1">Логин</label>
-        <input
-          type="text"
-          className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-50"
-          value={username}
-          placeholder="Логин"
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+      <div className="grid gap-6">
+        <div className="grid gap-2 text-sm text-gray-600">
+          <label>Логин</label>
+          <input
+            type="text"
+            className="w-full border border-gray-100 rounded-xl px-3 py-2 text-m bg-gray-50 text-gray-900"
+            value={username}
+            placeholder="Логин"
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="grid gap-2 text-sm text-gray-600">
+          <label>Email</label>
+          <input
+            type="email"
+            className="w-full border border-gray-100 rounded-xl px-3 py-2 text-m bg-gray-50 text-gray-900"
+            value={email}
+            placeholder="test@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="grid gap-2 text-sm text-gray-600">
+          <label>Пароль</label>
+          <input
+            type="password"
+            className="w-full border border-gray-100 rounded-xl px-3 py-2 text-m bg-gray-50 text-gray-900"
+            value={password}
+            placeholder="**********"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-[360px] h-[48px] bg-blue-500 text-white py-2 rounded-xl mx-auto block"
+        >
+          Зарегистрироваться
+        </button>
+        <p className="text-center text-sm">
+          Уже есть аккаунт?{" "}
+          <Link href="/" className="hover:underline">
+              Войти
+          </Link>
+        </p>
       </div>
-      <div>
-        <label className="block text-sm text-gray-600 mb-1">Email</label>
-        <input
-          type="email"
-          className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-50"
-          value={email}
-          placeholder="test@gmail.com"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label className="block text-sm text-gray-600 mb-1">Пароль</label>
-        <input
-          type="password"
-          className="w-full border border-gray-300 rounded-md px-3 py-2 bg-gray-50"
-          value={password}
-          placeholder="**********"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-[360px] h-[48px] bg-blue-500 text-white py-2 rounded-xl mx-auto block"
-      >
-        Зарегистрироваться
-      </button>
-      <p className="text-center text-sm">
-        Уже есть аккаунт?{" "}
-        <Link href="/" className="hover:underline">
-            Войти
-         </Link>
-      </p>
     </form>
   );
 }

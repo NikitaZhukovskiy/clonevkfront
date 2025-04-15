@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Raleway } from 'next/font/google';
 import "./globals.css";
+<<<<<<< HEAD
+=======
+import Navbar from "@/components/header/Navbar";
+>>>>>>> d0cb840 (подогнал сайт под дизайн + сделал кнопки для входа/регистрации/выхода)
 
 const raleway = Raleway({
   subsets: ['latin', 'cyrillic'], // поддерживаемые языки
@@ -23,6 +27,10 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} ${raleway.variable} antialiased`}
       >
+<<<<<<< HEAD
+=======
+        <Navbar />
+>>>>>>> d0cb840 (подогнал сайт под дизайн + сделал кнопки для входа/регистрации/выхода)
         {children}
       </body>
     </html>
