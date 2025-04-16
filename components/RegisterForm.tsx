@@ -27,7 +27,7 @@ export default function RegisterForm() {
     }
     
     console.log("Успешная регистрация");
-    router.push("/");
+    router.push('/?fromRegistration=true')
   };
 
   return (
