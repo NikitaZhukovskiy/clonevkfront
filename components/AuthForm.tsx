@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation"
 import Image from 'next/image'
 import Link from "next/link";
+import authStore from "@/stores/AuthStore"
 
 export default function AuthForm() {
   const router = useRouter()
@@ -12,21 +13,25 @@ export default function AuthForm() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-  
+  e.preventDefault();
+
     const res = await fetch("http://localhost:8083/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-  
+
     if (!res.ok) {
       console.error("Ошибка авторизации");
       return;
     }
 
     const data = await res.json()
-    console.log("Успешный вход:", data)
+    const { accessToken, refreshToken } = data
+
+    authStore.login(accessToken, refreshToken)
+    console.log("Успешный вход, токены сохранены")
+
     router.push("/dashboard")
   };
 
@@ -82,7 +87,7 @@ export default function AuthForm() {
         </div>
         <p className="text-center text-sm">
           Еще нет аккаунта?{" "}
-          <Link href="/register/" className="hover:underline">
+          <Link href="/register" className="hover:underline">
             Регистрация
           </Link>
         </p>
