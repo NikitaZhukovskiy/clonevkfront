@@ -209,10 +209,9 @@ export default function ProfilePage() {
                   <li key={u.userID} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded">
                     <div className="w-10 h-10 rounded-full overflow-hidden relative border border-gray-300">
                       {u.userAvatar ? (
-                        <Image
+                        <img
                           src={u.userAvatar}
                           alt={`${u.userName} avatar`}
-                          fill
                           className="object-cover"
                           sizes="40px"
                         />
@@ -240,10 +239,9 @@ export default function ProfilePage() {
                   <li key={u.userID} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded drop-shadow-3xl">
                     <div className="w-10 h-10 rounded-full overflow-hidden relative border border-gray-300">
                       {u.userAvatar ? (
-                        <Image
+                        <img
                           src={u.userAvatar}
                           alt={`${u.userName} avatar`}
-                          fill
                           className="object-cover"
                           sizes="40px"
                         />
@@ -279,10 +277,9 @@ export default function ProfilePage() {
                     <div className="flex items-center p-2 gap-4 rounded-2xl border-1 w-full">
                       <div className="w-16 h-16 rounded-full overflow-hidden relative flex-shrink-0">
                       {user.userAvatar ? (
-                        <Image
+                        <img
                           src={user.userAvatar}
                           alt={`${user.userName} avatar`}
-                          fill
                           className="object-cover"
                           sizes="40px"
                         />
